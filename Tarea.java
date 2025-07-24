@@ -1,7 +1,5 @@
 package pruebasG;
 
-import java.io.*;
-
 public class Tarea {
 
 	public Tarea(int id,String descripcion, boolean completado) {
