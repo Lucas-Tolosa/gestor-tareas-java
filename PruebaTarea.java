@@ -1,46 +1,38 @@
 package pruebasG;
 
 import java.io.*;
-import java.util.Scanner;
 
-public class PruebaTarea {
+public class Tarea {
 
-public static void main(String[] args) {
-	
-	Scanner sc = new Scanner(System.in);
-	System.out.println("¿desea Usar la Lista de tareas?");
-	String respuesta = sc.nextLine();
-	GestionadorTareas gt = new GestionadorTareas();
-	
-	
-	while(respuesta.equalsIgnoreCase("si")) {
-		System.out.println("1- ver Lista de tareas");
-		System.out.println("2-Agregar Tarea");
-		System.out.println("3-Completar tarea");
-		System.out.println("4-Salir");
-		
-		int eleccion = sc.nextInt();
-		sc.nextLine();
-		switch(eleccion) {
-		case 1: gt.mostrarTareas();
-		;
-		break;
-		case 2:
-			System.out.println("coloque la descripcion de la tarea");
-			String descripcion = sc.nextLine();
-			gt.agregarTarea(new Tarea(descripcion,false));
-			break;
-		case 3:
-			System.out.println("coloque el id de la tarea completada");
-			int id = sc.nextInt();
-			sc.nextLine();
-			gt.completarTarea(id);
-			break;
-		case 4: respuesta= "No";
-			break;
-		}
-		
+	public Tarea(int id,String descripcion, boolean completado) {
+		this.id = id;
+		this.descripcion = descripcion;
+		this.completado = completado;
 		
 	}
-}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public boolean isCompletado() {
+		return completado;
+	}
+	public void setCompletado(boolean completado) {
+		this.completado = completado;
+	}
+
+	@Override
+	public String toString() {
+		return  this.getId()+"\n" + this.getDescripcion() + "\nCompletado:\n" + this.isCompletado()+"\n-----\n";
+		
+	}
+
+	private String descripcion;
+	private boolean completado;
+	private int id;
+	
 }
